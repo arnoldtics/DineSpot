@@ -15,3 +15,10 @@
 .icon{
     width: 20%;
 }
+
+
+.logo{
+    position: relative;
+    left: 32.5%;
+    top: 100%;
+}

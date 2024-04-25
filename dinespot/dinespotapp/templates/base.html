@@ -42,11 +42,13 @@
         </nav>
     </header>
 
-    <main class="container mt-4">
+    <main class="container-fluid mt-4">
         {% block content %}
         <!-- This block will be overridden by child templates. -->
         {% endblock %}
     </main>
+
+    <img class="logo logo-size" src="{% static 'img/DinespotLogo.jpg' %}" alt="Dinespot Logo">
 
     <footer class="custom-navbar text-center text-lg-start">
         <div class="text-center p-3 footer" style="background-color: rgba(0, 0, 0, 0);">
