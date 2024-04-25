@@ -1,0 +1,17 @@
+/* static/css/style.css */
+.custom-navbar {
+    background-color: #c64b3c; /* Color de fondo de la barra de navegación */
+}
+
+.letter-navbar{
+    color: #fff;
+    font-size: 25px;
+}
+
+.footer{
+    color: #fff;
+}
+
+.icon{
+    width: 20%;
+}

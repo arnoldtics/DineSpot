@@ -14,25 +14,27 @@
 <body>
     <header>
         <!-- Example of a Bootstrap navbar -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg custom-navbar">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">Dinespot</a>
+                <a class="navbar-brand letter-navbar" href="{% url 'dinespotapp' %}">
+                    <img class="icon" src="{% static 'img/DinespotLogo.jpg' %}" alt="Dinespot">
+                </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            <a class="nav-link letter-navbar" aria-current="page" href="{% url 'dinespotapp' %}">Inicio</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Features</a>
+                            <a class="nav-link letter-navbar" href="{% url 'dinespotapp' %}">Restaurants</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Pricing</a>
+                            <a class="nav-link letter-navbar" href="{% url 'dinespotapp' %}">Reservations</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">About</a>
+                            <a class="nav-link letter-navbar" href="{% url 'dinespotapp' %}">Business</a>
                         </li>
                     </ul>
                 </div>
@@ -46,10 +48,9 @@
         {% endblock %}
     </main>
 
-    <footer class="bg-light text-center text-lg-start">
-        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-            © 2024 MySite:
-            <a class="text-dark" href="https://mysite.com/">mysite.com</a>
+    <footer class="custom-navbar text-center text-lg-start">
+        <div class="text-center p-3 footer" style="background-color: rgba(0, 0, 0, 0);">
+            © 2024 Dinespot
         </div>
     </footer>
 
