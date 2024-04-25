@@ -1,4 +1,6 @@
 {% extends 'base.html' %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
 
 {% block title %}Dinespot{% endblock %}
 
@@ -7,5 +9,6 @@
         <h1>Welcome to Dinespot</h1>
         <p>Dinespot is an app that lets food locals and clients have a smoother experience.</p>
         <!--<button class="btn btn-primary">Test Button</button>-->
+        <img class="logo" src="{% static 'img/DinespotLogo.jpg' %}" alt="Dinespot Logo">
     </div>
 {% endblock %}
