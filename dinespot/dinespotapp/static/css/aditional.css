@@ -1,0 +1,102 @@
+/* style.css */
+
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa; /* Color de fondo del cuerpo */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    color: #333; /* Color del título principal */
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+h5 {
+    color: red; /* Color de los mensajes de error */
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #d3d5d8; /* Color del borde de los inputs y el botón */
+    background-color: #fff; /* Color de fondo de los inputs */
+    transition: border-color 0.3s ease; /* Transición suave para el color del borde */
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+button:focus {
+    outline: none;
+    border-color: #007bff; /* Color del borde al hacer foco */
+}
+
+.btn-primary {
+    background-color: #007bff; /* Color de fondo del botón */
+    color: #fff; /* Color del texto del botón */
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Transición suave para el color de fondo */
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; /* Color de fondo del botón al pasar el mouse */
+}
+
+.text-center {
+    text-align: center;
+}
+
+.space-x-2 > * {
+    margin-right: 8px; /* Espacio entre elementos dentro de space-x-2 */
+}
+
+/* Estilos específicos para pantallas grandes */
+@media (min-width: 992px) {
+    .lg-p-12 {
+        padding: 12px;
+    }
+
+    .max-w-md {
+        max-width: 400px;
+    }
+
+    .max-w-xl {
+        max-width: 600px;
+    }
+
+    .lg-my-0 {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .my-12 {
+        margin-top: 48px;
+        margin-bottom: 48px;
+    }
+
+    .mx-auto {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .p-6 {
+        padding: 24px;
+    }
+
+    .space-y-4 > * {
+        margin-bottom: 16px; /* Espacio entre elementos dentro de space-y-4 */
+    }
+}
