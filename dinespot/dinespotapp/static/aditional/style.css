@@ -24,6 +24,22 @@
 }
 
 .color_button{
-  color: deeppink;
+  background-color: deeppink;
 }
 
+.campos{
+    position: relative;
+    top: 100%;
+    left: 42%;
+}
+
+.campo_boton{
+    position: relative;
+    top: 100%;
+    left: 46%;
+    font-size: 16px;
+}
+
+.footer_size{
+    height: 73px;
+}

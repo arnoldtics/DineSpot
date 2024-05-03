@@ -10,7 +10,7 @@
 
 {% block content %}
     <div class="container mt-5">
-        <h1 class="lg:text-3xl text-xl font-semibold mb-6">Sign Up For Restaurants</h1>
+        <h1 class="text-center lg:text-3xl text-xl font-semibold mb-6">Sign Up For Restaurants</h1>
         
         <div class="container mt-5 lg:p-12 max-w-md max-w-xl lg:my-0 my-12 mx-auto p-6 space-y-">
             <style>
@@ -25,13 +25,13 @@
         
         <form action="" method="POST">
             {% csrf_token %}
-                <ul><input type="text" name="username" placeholder="Username" class="bg-gray-200 mb-2 shadow-none  dark:bg-gray-800" style="border: 1px solid #d3d5d8 !important;"></ul>
-                <ul><input type="email" name="email" placeholder="Email" class="bg-gray-200 mb-2 shadow-none  dark:bg-gray-800" style="border: 1px solid #d3d5d8 !important;"></ul>
-                <ul><input type="password" name="password" placeholder="Password" class="bg-gray-200 mb-2 shadow-none  dark:bg-gray-800" style="border: 1px solid #d3d5d8 !important;"></ul>
-                <ul><input type="password" name="password2" placeholder="Confirm Password" class="bg-gray-200 mb-2 shadow-none  dark:bg-gray-800" style="border: 1px solid #d3d5d8 !important;"></ul>
-                <ul><button type="submit" class="button btn btn-primary">Sign Up</button></ul>
+                <ul><input type="text" name="username" placeholder="Username" class="campos bg-gray-200 mb-2 shadow-none  dark:bg-gray-800" style="border: 1px solid #d3d5d8 !important;"></ul>
+                <ul><input type="email" name="email" placeholder="Email" class="campos bg-gray-200 mb-2 shadow-none  dark:bg-gray-800" style="border: 1px solid #d3d5d8 !important;"></ul>
+                <ul><input type="password" name="password" placeholder="Password" class="campos bg-gray-200 mb-2 shadow-none  dark:bg-gray-800" style="border: 1px solid #d3d5d8 !important;"></ul>
+                <ul><input type="password" name="password2" placeholder="Confirm Password" class="campos bg-gray-200 mb-2 shadow-none  dark:bg-gray-800" style="border: 1px solid #d3d5d8 !important;"></ul>
+                <ul><button type="submit" class="campo_boton button btn btn-primary">Sign Up</button></ul>
             <div class="text-center mt-5 space-x-2">
-                <p class="text-base">Do you have an account?</p><a href="signinRestaurant.html">Login</a>
+                <p class="text-base"> Do you have an account? <a href="/signinRestaurant"> Login </a>
             </div>
         </form>
     </div>
