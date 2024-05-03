@@ -17,8 +17,17 @@
 }
 
 
-.logo{
+/*.logo{
     position: relative;
     left: 30%;
     top: 100%;
+}*/
+
+.logo {
+    display: block; /* Para asegurar que la imagen se muestre como un bloque */
+    margin: 0 auto; /* Centrar horizontalmente la imagen */
+    max-width: 100%; /* Ajustar el tamaño máximo de la imagen al contenedor */
+    height: auto; /* Mantener la proporción de aspecto de la imagen */
+    position: relative;
+    left: 30px;
 }
