@@ -22,6 +22,12 @@ def business(request):
     template = loader.get_template('business.html')
     return HttpResponse(template.render())
 
+@login_required(login_url='signinRestaurant')
+def infoRestaurant(request):
+    user_object = User.objects.get(username=request.user.username)
+    user_profile = Restaurant.objects.get(user=user_object)
+    return render(request, 'infoRestaurant.html', {'user_profile':user_profile})
+
 @login_required(login_url='signinClient')
 def settingsClient(request):
     client_profile = get_object_or_404(Client, user=request.user)
@@ -125,7 +131,7 @@ def signupRestaurant(request):
                 new_profile = Restaurant.objects.create(user=user_model, rest_id=user_model.id)
                 new_profile.save()
 
-                return redirect('settingsRestaurant')
+                return redirect('infoRestaurant')
         else: 
             messages.info(request, "Password Not Matching")
             return redirect('signupRestaurant')
@@ -156,7 +162,7 @@ def signinRestaurant(request):
 
         if user is not None:
             auth.login(request, user)
-            return redirect('/')
+            return redirect('infoRestaurant')
         else:
             messages.info(request, 'Credentials Invalid')
             return redirect('signinRestaurant')

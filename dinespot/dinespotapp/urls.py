@@ -15,5 +15,4 @@ urlpatterns = [
     path('settingsClient', views.settingsClient, name='settingsClient'),
     path('settingsRestaurant', views.settingsRestaurant, name='settingsRestaurant'),
     path('infoRestaurant', views.infoRestaurant, name='infoRestaurant'),
-    path('infoClient', views.infoClient, name='infoClient'),
 ]
