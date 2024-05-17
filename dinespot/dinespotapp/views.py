@@ -1,9 +1,9 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
-from .models import Client, Restaurant, Reserve, client, restaurant
+from .models import Client, Restaurant, Reserve
 from django.template import loader
 
 def dinespotapp(request):
@@ -22,35 +22,19 @@ def business(request):
     template = loader.get_template('business.html')
     return HttpResponse(template.render())
 
-@login_required(login_url='signinRestaurant')
-def infoRestaurant(request):
-    user_object = User.objects.get(username=request.user.username)
-    user_profile = Restaurant.objects.get(user=user_object)
-    return render(request, 'infoRestaurant.html', {'user_profile':user_profile})
-
-@login_required(login_url='signinClient')
-def infoClient(request):
-    user_object = User.objects.get(username=request.user.username)
-    user_profile = Client.objects.get(user=user_object)
-    return render(request, 'infoClient.html', {'user_profile':user_profile})
-
 @login_required(login_url='signinClient')
 def settingsClient(request):
-    client_profile = Client.objects.get(user=request.user)
+    client_profile = get_object_or_404(Client, user=request.user)
+    
     if request.method == 'POST':
-        name = request.POST['f_name']
-        last_name = request.POST['l_name']
-        tel = request.POST['tel']
-        mail = request.POST['mail']
-
-        client_profile.name = name
-        client_profile.last_name = last_name
-        client_profile.tel = tel
-        client_profile.mail = mail
+        client_profile.f_name = request.POST.get('f_name', '')
+        client_profile.l_name = request.POST.get('l_name', '')
+        client_profile.tel = request.POST.get('tel', '')
+        client_profile.mail = request.POST.get('mail', '')
         client_profile.save()
-
         return redirect('settingsClient')
-    return render(request, 'settingsClient.html', {'client_profile': client_profile})
+    
+    return render(request, 'settingsClient.html', {'client_profile': client_profile, 'user': request.user})
 
 @login_required(login_url='signinRestaurant')
 def settingsRestaurant(request):
@@ -82,7 +66,7 @@ def settingsRestaurant(request):
         restaurant_profile.num_int = num_int
         restaurant_profile.max_cap = max_cap
         restaurant_profile.save()
-        return redirect('infoRestaurant')
+        return redirect('settingsRestaurant')
     return render(request, 'settingsRestaurant.html', {'restaurant_profile': restaurant_profile})
 
 def signupClient(request):
@@ -110,7 +94,7 @@ def signupClient(request):
                 new_profile = Client.objects.create(user=user_model, client_id=user_model.id)
                 new_profile.save()
                 
-                return redirect('infoClient')
+                return redirect('settingsClient')
         else:
             messages.info(request, "Password Not Matching")
             return redirect('signupClient')
@@ -141,7 +125,7 @@ def signupRestaurant(request):
                 new_profile = Restaurant.objects.create(user=user_model, rest_id=user_model.id)
                 new_profile.save()
 
-                return redirect('infoRestaurant')
+                return redirect('settingsRestaurant')
         else: 
             messages.info(request, "Password Not Matching")
             return redirect('signupRestaurant')
@@ -156,7 +140,7 @@ def signinClient(request):
 
         if user is not None:
             auth.login(request, user)
-            return redirect('infoClient')
+            return redirect('/')
         else:
             messages.info(request, 'Credentials Invalid')
             return redirect('signinClient')
@@ -172,7 +156,7 @@ def signinRestaurant(request):
 
         if user is not None:
             auth.login(request, user)
-            return redirect('infoRestaurant')
+            return redirect('/')
         else:
             messages.info(request, 'Credentials Invalid')
             return redirect('signinRestaurant')
