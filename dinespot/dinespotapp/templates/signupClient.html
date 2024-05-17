@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'aditional/style.css' %}">
+<link rel="stylesheet" href="{% static 'assets/css/icons.css' %}">
+<link rel="stylesheet" href="{% static 'assets/css/uikit.css' %}">
+<link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+<link rel="stylesheet" href="{% static 'assets/css/tailwind.css' %}">
+
+{% block title %}Dinespot{% endblock %}
+
+{% block content %}
+    <div class="container mt-5">
+        <h1 class="text-center lg:text-3xl text-xl font-semibold mb-6">Sign Up For Clients</h1>
+        
+        <div class="container mt-5 lg:p-12 max-w-md max-w-xl lg:my-0 my-12 mx-auto p-6 space-y-">
+            <style>
+                h5{
+                    color: red;
+                }
+            </style>
+            {% for message in messages %}
+            <h5>{{message}}</h5>
+            {% endfor %}
+        </div>
+        
+        <form action="" method="POST">
+            {% csrf_token %}
+                <ul><input type="text" name="username" placeholder="Username" class="campos bg-gray-200 mb-2 shadow-none  dark:bg-gray-800" style="border: 1px solid #d3d5d8 !important;"></ul>
+                <ul><input type="email" name="email" placeholder="Email" class="campos bg-gray-200 mb-2 shadow-none  dark:bg-gray-800" style="border: 1px solid #d3d5d8 !important;"></ul>
+                <ul><input type="password" name="password" placeholder="Password" class="campos bg-gray-200 mb-2 shadow-none  dark:bg-gray-800" style="border: 1px solid #d3d5d8 !important;"></ul>
+                <ul><input type="password" name="password2" placeholder="Confirm Password" class="campos bg-gray-200 mb-2 shadow-none  dark:bg-gray-800" style="border: 1px solid #d3d5d8 !important;"></ul>
+                <ul><button type="submit" class="campo_boton button btn btn-primary">Sign Up</button></ul>
+            <div class="text-center mt-5 space-x-2">
+                <p class="text-base"> Do you have an account? <a href="/signinClient"> Login </a>
+            </div>
+        </form>
+    </div>
+
+    <script src="{% static 'assets/js/tippy.all.min.js' %}"></script>
+    <script src="{% static 'assets/js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'assets/js/uikit.js' %}"></script>
+    <script src="{% static 'assets/js/simplebar.js' %}"></script>
+    <script src="{% static 'assets/js/custom.js' %}"></script>
+{% endblock %}
