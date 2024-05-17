@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'aditional/style.css' %}">
+
+{% block title %}Dinespot{% endblock %}
+
+{% block content %}
+    <div class="container mt-5">
+        <div class="links-container">
+            <a href="/settingsRestaurant">Account setting</a>
+            <div uk-drop="mode: click;offset:9" class="header_dropdown profile_dropdown border-t">
+                <a href="/logoutRestaurant"> Log Out </a>
+            </div>
+        </div>
+
+        <h1 class="text-2xl leading-none text-gray-900 tracking-tight mt-3"> Information about: <b>{{user_profile.user_profile}}</b> </h1>
+
+        <a href="#">
+            <img src="{{user_profile.profileimg.url}}" class="header-avatar" alt="">
+        </a>
+
+        <h2>{{ user_profile.name }}</h2>
+
+        <img src="{{ user_profile.profileimg.url }}" alt="Profile Image">
+
+        <p><strong>Description:</strong> {{ user_profile.description }}</p>
+        <p><strong>Country:</strong> {{ user_profile.country }}</p>
+        <p><strong>State:</strong> {{ user_profile.state }}</p>
+        <p><strong>City:</strong> {{ user_profile.city }}</p>
+        <p><strong>Postal Code:</strong> {{ user_profile.p_code }}</p>
+        <p><strong>Colony:</strong> {{ user_profile.colony }}</p>
+        <p><strong>Street:</strong> {{ user_profile.street }}</p>
+        <p><strong>Number (exterior):</strong> {{ user_profile.num_ext }}</p>
+        <p><strong>Number (interior):</strong> {{ user_profile.num_int }}</p>
+        <p><strong>Max Capacity:</strong> {{ user_profile.max_cap }}</p>
+    </div>
+
+    <script src="{% static 'assets/js/tippy.all.min.js' %}"></script>
+    <script src="{% static 'assets/js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'assets/js/uikit.js' %}"></script>
+    <script src="{% static 'assets/js/simplebar.js' %}"></script>
+    <script src="{% static 'assets/js/custom.js' %}"></script>
+{% endblock %}
