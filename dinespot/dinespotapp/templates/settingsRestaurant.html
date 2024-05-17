@@ -6,12 +6,63 @@
 
 {% block content %}
     <div class="container mt-5">
-        <h1 class="text-2xl leading-none text-gray-900 tracking-tight mt-3"><a href="/">Home</a> / Account Setting for <b>{{user.username}}</b> </h1>
+        <h1 class="text-2xl leading-none text-gray-900 tracking-tight mt-3">Account Setting for <b>{{ restaurant_profile.user.username }}</b></h1>
 
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="name">Restaurant Name:</label>
+                <input type="text" id="name" name="name" value="{{ restaurant_profile.name }}" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="description">Description:</label>
+                <input type="text" id="description" name="description" value="{{ restaurant_profile.description }}" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="country">Country:</label>
+                <input type="text" id="country" name="country" value="{{ restaurant_profile.country }}" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="state">State:</label>
+                <input type="text" id="state" name="state" value="{{ restaurant_profile.state }}" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="city">City:</label>
+                <input type="text" id="city" name="city" value="{{ restaurant_profile.city }}" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="p_code">Postal Code:</label>
+                <input type="text" id="p_code" name="p_code" value="{{ restaurant_profile.p_code }}" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="colony">Neighborhood:</label>
+                <input type="text" id="colony" name="colony" value="{{ restaurant_profile.colony }}" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="street">Street:</label>
+                <input type="text" id="street" name="street" value="{{ restaurant_profile.street }}" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="num_ext">Exterior Number</label>
+                <input type="number" id="num_ext" name="num_ext" value="{{ restaurant_profile.num_ext}}" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="num_int">Interior Number</label>
+                <input type="number" id="num_int" name="num_int" value="{{ restaurant_profile.num_int}}" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="max_cap">Max Client Capacity</label>
+                <input type="number" id="max_cap" name="max_cap" value="{{ restaurant_profile.max_cap}}" class="form-control">
+            </div>
 
+            <div class="form-group">
+                <label for="profileimg">Profile Image:</label>
+                <input type="file" id="profileimg" name="profileimg" accept="image/*" class="form-control-file">
+            </div>
 
+            <button type="submit" class="btn btn-primary">Save Changes</button>
+        </form>
     </div>
-
 
     <script src="{% static 'assets/js/tippy.all.min.js' %}"></script>
     <script src="{% static 'assets/js/jquery-3.3.1.min.js' %}"></script>
@@ -19,4 +70,3 @@
     <script src="{% static 'assets/js/simplebar.js' %}"></script>
     <script src="{% static 'assets/js/custom.js' %}"></script>
 {% endblock %}
-

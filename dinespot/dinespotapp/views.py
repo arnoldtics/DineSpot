@@ -82,7 +82,7 @@ def settingsRestaurant(request):
         restaurant_profile.num_int = num_int
         restaurant_profile.max_cap = max_cap
         restaurant_profile.save()
-        return redirect('settingsRestaurant')
+        return redirect('infoRestaurant')
     return render(request, 'settingsRestaurant.html', {'restaurant_profile': restaurant_profile})
 
 def signupClient(request):
